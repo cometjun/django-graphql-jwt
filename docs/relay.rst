@@ -1,7 +1,7 @@
 Relay
 =====
 
-Complete support for `Relay <https://facebook.github.io/relay/>`_.
+完成对 `Relay <https://facebook.github.io/relay/>`_的支持.
 
 Schema
 ------
