@@ -7,16 +7,20 @@ Django GraphQL JWT
 `JSON Web Token <https://jwt.io/>`_ authentication for `Django GraphQL <https://github.com/graphql-python/graphene-django>`_
 
 
-Installation
-------------
+Installation 【 安装 】
+------------------------
 
 Install last stable version from Pypi:
+
+【 从Pypi安装最新稳定版 】
 
 ::
 
     pip install django-graphql-jwt
 
 Add ``AuthenticationMiddleware`` middleware to your *MIDDLEWARE* settings:
+
+【 添加 ``AuthenticationMiddleware`` 中间件到 *MIDDLEWARE* 设置项中 】
 
 .. code:: python
 
@@ -27,6 +31,8 @@ Add ``AuthenticationMiddleware`` middleware to your *MIDDLEWARE* settings:
     ]
 
 Add ``JSONWebTokenMiddleware`` middleware to your *GRAPHENE* settings:
+
+【 添加 ``JSONWebTokenMiddleware`` 中间件到 *GRAPHENE* 设置项中 】
 
 .. code:: python
 
@@ -39,6 +45,8 @@ Add ``JSONWebTokenMiddleware`` middleware to your *GRAPHENE* settings:
 
 Add ``JSONWebTokenBackend`` backend to your *AUTHENTICATION_BACKENDS*:
 
+【 添加 ``JSONWebTokenBackend`` 中间件到 *AUTHENTICATION_BACKENDS* 设置项中 】
+
 .. code:: python
 
     AUTHENTICATION_BACKENDS = [
@@ -47,10 +55,12 @@ Add ``JSONWebTokenBackend`` backend to your *AUTHENTICATION_BACKENDS*:
     ]
 
 
-Schema
-------
+Schema 【 图 】
+--------------------
 
 Add *django-graphql-jwt* mutations to the root schema:
+
+【 添加 *django-graphql-jwt* mutations 到根 schema 中 】
 
 .. code:: python
 
@@ -67,10 +77,11 @@ Add *django-graphql-jwt* mutations to the root schema:
     schema = graphene.Schema(mutation=Mutation)
 
 
-Documentation
--------------
+Documentation  【 文档 】
+--------------------------
 
 Fantastic documentation is available at https://django-graphql-jwt.domake.io.
+【 官方文档： https://django-graphql-jwt.domake.io 】
 
 
 .. |Pypi| image:: https://img.shields.io/pypi/v/django-graphql-jwt.svg
