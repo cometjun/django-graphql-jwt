@@ -81,6 +81,7 @@ Documentation  【 文档 】
 --------------------------
 
 Fantastic documentation is available at https://django-graphql-jwt.domake.io.
+
 【 官方文档： https://django-graphql-jwt.domake.io 】
 
 
