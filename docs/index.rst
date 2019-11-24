@@ -29,14 +29,14 @@ Django GraphQL JWT
 .. toctree::
    :maxdepth: 3
 
-   quickstart
-   authentication
-   decorators
-   refresh_token
-   customizing
-   relay
-   signals
-   tests
-   settings
+   quickstart  【 快速开始 】
+   authentication  【 验证方式 】
+   decorators  【 装饰器 】
+   refresh_token  【 更新token 】
+   customizing  【 客制化 】
+   relay  【 Relay 】
+   signals  【 标志 】
+   tests  【 测试 】
+   settings  【 设置 】
    changelog
    contributors
