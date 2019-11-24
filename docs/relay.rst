@@ -1,12 +1,18 @@
 Relay
 =====
 
-完成对 `Relay <https://facebook.github.io/relay/>`_的支持.
+原文：Complete support for Relay.
 
-Schema
-------
+翻译：完全支持 `Relay <https://facebook.github.io/relay/>`_
 
-Add mutations to the root schema::
+Schema 图
+---------
+
+原文：Add mutations to the root schema:
+
+翻译：添加 mutations 到根 schema
+
+::
 
     import graphene
     import graphql_jwt
@@ -24,13 +30,23 @@ Add mutations to the root schema::
     schema = graphene.Schema(mutation=Mutation)
 
 
-Queries
--------
+Queries 请求
+------------
 
-Relay mutations only accepts one argument named *input*.
+原文：
+
+Relay mutations only accepts one argument named input.
+
+* ``tokenAuth`` to authenticate the user and obtain a JSON Web Token:
 
 
-* ``tokenAuth`` to authenticate the user and obtain a **JSON Web Token**:
+
+翻译：
+
+Relay mutations 只接受一个名称为 *input* 的参数.
+
+
+* ``tokenAuth`` 可以认证用户和获取 **JSON Web Token** 密钥:
 
   ::
 
@@ -40,7 +56,13 @@ Relay mutations only accepts one argument named *input*.
         }
       }
 
-* ``verifyToken`` to validate the *token* and obtain the *token payload*:
+原文：
+
+* verifyToken to validate the token and obtain the token payload:
+
+翻译：
+
+* ``verifyToken`` 可以验证 *token* 和获取 *token payload*:
 
   ::
 
@@ -51,10 +73,10 @@ Relay mutations only accepts one argument named *input*.
       }
 
 
-Single token refresh
-~~~~~~~~~~~~~~~~~~~~
+Single token refresh 更新单个 token
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* ``refreshToken`` to obtain a brand new *token* with renewed expiration time for **non-expired tokens**:
+* ``refreshToken`` 通过一个 **未过期token** 续订一个新的 *token*:
 
   ::
 
@@ -66,10 +88,12 @@ Single token refresh
       }
 
 
-Long running refresh tokens
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Long running refresh tokens  长期运行 refresh token
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* ``refreshToken`` to refresh your *token*, using the ``refreshToken`` you already got during authorization:
+* ``refreshToken`` to obtain a brand new *token* with renewed expiration time for **non-expired tokens**:
+
+* [``refreshToken`` 重新获取你的 *token*, 在已认证期间使用 ``refreshToken`` 重新获取 *token*:]
 
   ::
 
@@ -83,6 +107,8 @@ Long running refresh tokens
 
 * ``revokeToken`` to revoke a valid ``refreshToken``. The invalidation takes place immediately, and the ``refreshToken`` cannot be used again after the revocation:
 
+* [``revokeToken`` 撤销有效的已获取token。撤销马上生效，并且不能使用``refreshToken``再次获取token]
+
   ::
 
       mutation RevokeToken($refreshToken: String!) {
@@ -92,12 +118,14 @@ Long running refresh tokens
       }
 
 
-Customizing
------------
+Customizing 客制化
+------------------
 
 If you want to customize the ``ObtainJSONWebToken`` behavior, you'll need to customize the ``resolve()`` method on a subclass of:
 
-  .. autoclass:: graphql_jwt.relay.JSONWebTokenMutation
+【若你希望自定义``ObtainJSONWebToken``行为，你可以通过继承这个类，重写``resolve()``方法】
+
+  graphql_jwt.relay.JSONWebTokenMutation
 
 ::
 
@@ -112,7 +140,11 @@ If you want to customize the ``ObtainJSONWebToken`` behavior, you'll need to cus
         def resolve(cls, root, info):
             return cls(user=info.context.user)
 
-Authenticate the user and obtain a **JSON Web Token** and the *user id*::
+Authenticate the user and obtain a **JSON Web Token** and the *user id*
+
+【 验证用户身份并获取 **JSON Web Token** 和 *user id* 】
+
+::
 
     mutation TokenAuth($username: String!, $password: String!) {
       tokenAuth(input: {username: $username, password: $password}) {
